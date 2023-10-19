@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.19",
+    "expo-font": "^11.6.0",
     "react-native-linear-gradient": "^2.8.3"
   }
 }
