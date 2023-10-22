@@ -1,5 +1,5 @@
 import {StyleSheet, Image, Text, View} from 'react-native';
-import Footer from './footer';
+import Footer from './MainContainer';
 
 export default function App() {
     return (
