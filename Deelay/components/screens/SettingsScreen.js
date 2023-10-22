@@ -1,5 +1,4 @@
 import {StyleSheet, Image, Text, View} from 'react-native';
-import Footer from '../MainContainer';
 
 export default function SettingsScreen({navigation}) {
     return (
@@ -10,9 +9,6 @@ export default function SettingsScreen({navigation}) {
             <View style={styles.Container}>
                 <Text onPress={() => navigation.navigate('Home')}
                  style={styles.containertext}>Settings Screen</Text>
-            </View>
-            <View style={styles.Footer}>
-                <Footer />
             </View>
         </View>
     );

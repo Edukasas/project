@@ -1,5 +1,4 @@
 import {StyleSheet, Image, Text, View} from 'react-native';
-import Footer from '../MainContainer';
 
 export default function HomeScreen({navigation}) {
     return (
@@ -10,9 +9,6 @@ export default function HomeScreen({navigation}) {
             <View style={styles.Container}>
                 <Text onPress={() => alert('This is home screen')}
                  style={styles.containertext}>HomeScreen</Text>
-            </View>
-            <View style={styles.Footer}>
-                <Footer />
             </View>
         </View>
     );

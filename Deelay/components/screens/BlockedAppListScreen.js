@@ -1,5 +1,4 @@
 import {StyleSheet, Image, Text, View} from 'react-native';
-import Footer from '../MainContainer';
 
 export default function BlockedAppScreen({navigation}) {
     return (
@@ -10,9 +9,6 @@ export default function BlockedAppScreen({navigation}) {
             <View style={styles.Container}>
                 <Text onPress={() => navigation.navigate('Home')}
                  style={styles.containertext}>BlockedAppListScreen</Text>
-            </View>
-            <View style={styles.Footer}>
-                <Footer />
             </View>
         </View>
     );

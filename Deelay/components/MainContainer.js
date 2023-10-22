@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -27,6 +27,8 @@ export default function MainContainer() {
             <Tab.Navigator
             initialRouteName={homeName}
             screenOptions={({route}) => ({
+                tabBarStyle: {padding: 0},
+                tabBarLabelStyle: {paddingBottom: 16},
                 tabBarIcon: ({focused, color, size}) => {
                     let iconName;
                     let rn = route.name;
@@ -35,7 +37,7 @@ export default function MainContainer() {
                         iconName = focused? 'home' : 'home-outline'
                     }
                     else if (rn === BlockedAppListName){
-                        iconName = focused? 'blocked' : 'dangerous'
+                        iconName = focused? 'remove-circle' : 'remove-circle-outline'
                     }
                     else if (rn === StatisticsName){
                         iconName = focused? 'stats-chart' : 'stats-chart-outline'
@@ -47,7 +49,9 @@ export default function MainContainer() {
                     return <Ionicons name={iconName} size={size} color={color}/>
                 },
             })}>
-            
+
+
+
             <Tab.Screen name={homeName} component={HomeScreen}/>
             <Tab.Screen name={BlockedAppListName} component={BlockedAppScreen}/>
             <Tab.Screen name={StatisticsName} component={StatisticsScreen}/>
@@ -80,24 +84,6 @@ export default function MainContainer() {
     );
 }
 
-// const styles = StyleSheet.create({
-//     Footer: {
-//         backgroundColor: '#354171',
-//         position: 'absolute',
-//         bottom: 0,
-//         width: '100%',
-//         flex: 1,
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//         paddingLeft: 20,
-//         paddingRight: 20,
-//         paddingTop: 12,
-//     },
-//     names: {
-//         color: '#DDE1FF',
-//         textAlign: 'center',
-//         paddingBottom: 16,
-//         fontFamily: 'Roboto',
-//         marginTop: 5,
-//     }
-// });
+const styles = StyleSheet.create({
+
+});

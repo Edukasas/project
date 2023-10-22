@@ -1,5 +1,4 @@
 import {StyleSheet, Image, Text, View} from 'react-native';
-import Footer from '../MainContainer';
 
 export default function StatisticsScreen({navigation}){
     return (
@@ -10,9 +9,6 @@ export default function StatisticsScreen({navigation}){
             <View style={styles.Container}>
                 <Text onPress={() => navigation.navigate('Home')}
                 style={styles.containertext}>Statistics Screen</Text>
-            </View>
-            <View style={styles.Footer}>
-                <Footer />
             </View>
         </View>
     );
@@ -31,10 +27,6 @@ const styles = StyleSheet.create({
         marginTop: 40,
         marginLeft: 23,
         marginBottom: 11,
-    },
-    containertext: {
-        color: 'white',
-        textAlign: 'center',
     },
     Container: {
         backgroundColor: 'black',
