@@ -1,9 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { Ionicons } from '@expo/vector-icons';
 // Screens
 import HomeScreen from './screens/HomeScreen';
 import BlockedAppScreen from './screens/BlockedAppListScreen';
@@ -18,37 +17,73 @@ const SettingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
 
+const MyTheme = {
+    colors: {
+      background: '#354171', // Set your desired background color for the header here
+      text: 'white',
+    }
+  };
+// const ActiveIcon = ({ source }) => (
+//     <Image
+//       source={source}
+//       style={{
+//         width: 64,   // Adjust the width and height for the desired size
+//         height: 32,
+//       }}
+//     />
+//   );
+//   const InactiveIcon = ({ source }) => (
+//     <Image
+//       source={source}
+//       style={{
+//         width: 64,   // Adjust the width and height for the desired size
+//         height: 32,
+//       }}
+//     />
+//   );
+
 export default function MainContainer() {
     // const [fontsLoaded] = useFonts({
     //     'Roboto': require('../assets/fonts/Roboto-Medium.ttf'),
     //   });
     return (
-        <NavigationContainer>
+        <NavigationContainer theme={MyTheme}> 
             <Tab.Navigator
             initialRouteName={homeName}
             screenOptions={({route}) => ({
-                tabBarStyle: {padding: 0},
+                tabBarStyle: {height: 80, backgroundColor: '#354171'},
                 tabBarLabelStyle: {paddingBottom: 16},
                 tabBarIcon: ({focused, color, size}) => {
-                    let iconName;
+                    // let iconSource;
+                    let iconName
                     let rn = route.name;
 
                     if (rn === homeName){
-                        iconName = focused? 'home' : 'home-outline'
+                        // iconSource = focused? require('../assets/images/footericons/activehome.png') : require('../assets/images/footericons/home.png');
+                         iconName = focused? 'home' : 'home-outline'
                     }
                     else if (rn === BlockedAppListName){
+                        // iconSource = focused? require('../assets/images/footericons/activeblocker.png') : require('../assets/images/footericons/blocker.png');
                         iconName = focused? 'remove-circle' : 'remove-circle-outline'
                     }
                     else if (rn === StatisticsName){
+                        // iconSource = focused? require('../assets/images/footericons/activestatistic.png') : require('../assets/images/footericons/statistic.png');
                         iconName = focused? 'stats-chart' : 'stats-chart-outline'
                     }
                     else if (rn === SettingsName){
+                        // iconSource = focused? require('../assets/images/footericons/activesettings.png') : require('../assets/images/footericons/settings.png');
                         iconName = focused? 'settings' : 'settings-outline'
                     }
 
+                    // return focused ? <ActiveIcon source={iconSource} /> : <InactiveIcon source={iconSource} />;
                     return <Ionicons name={iconName} size={size} color={color}/>
                 },
-            })}>
+            })}
+            tabBarOptions={{
+                activeTintColor: 'white', // Set the color for active (focused) tabs
+                inactiveTintColor: '#DDE1FF', // Set the color for inactive tabs
+              }}
+            >
 
 
 
@@ -58,32 +93,5 @@ export default function MainContainer() {
             <Tab.Screen name={SettingsName} component={SettingsScreen}/>
             </Tab.Navigator>
         </NavigationContainer>
-
-
-
-
-
-        // <View style={styles.Footer}>
-        //         <View style={styles.SmallBlock}>
-        //             <Image source={require('../assets/images/footericons/activehome.png')} style={styles.logo}  /> 
-        //             <Text style={styles.names}>Home</Text>
-        //         </View>
-        //         <View style={styles.SmallBlock}>
-        //             <Image source={require('../assets/images/footericons/blocker.png')} style={styles.logo}  /> 
-        //             <Text style={styles.names}>App limits</Text>
-        //         </View>
-        //         <View style={styles.SmallBlock}>
-        //             <Image source={require('../assets/images/footericons/statistic.png')} style={styles.logo}  /> 
-        //             <Text style={styles.names}>Statistics</Text>
-        //         </View>
-        //         <View style={styles.SmallBlock}>
-        //             <Image source={require('../assets/images/footericons/settings.png')} style={styles.logo}  /> 
-        //             <Text style={styles.names}>Settings</Text>
-        //         </View>
-        // </View>
     );
 }
-
-const styles = StyleSheet.create({
-
-});

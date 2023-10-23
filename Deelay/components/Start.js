@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
-
+import { useNavigation } from '@react-navigation/native';
 
 export default function Start() {
   const [fontsLoaded] = useFonts({
@@ -10,6 +10,9 @@ export default function Start() {
     'RobotSlabBold': require('../assets/fonts/RobotoSlab-ExtraBold.ttf'),
     'RobotoSlabBold': require('../assets/fonts/RobotoSlab-Bold.ttf'),
   });
+
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
             <LinearGradient
@@ -27,7 +30,11 @@ export default function Start() {
             <View style={styles.bottomblock}>
               <Text style={styles.h1}>Welcome!</Text>
               <Text style={styles.h1text}>Click on the button below to begin your journey aboard</Text>
-              <Pressable style={styles.button}>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate('MainContainer');
+                }}
+              style={styles.button}>
                 <Text style={styles.buttonText}>GET STARTED</Text>
               </Pressable>
               <Image source={require('../assets/images/leftcircles.png')} style={styles.leftcircles}  /> 

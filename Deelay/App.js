@@ -1,9 +1,10 @@
 import { View, StyleSheet } from 'react-native';
-import MainContainer from './components/MainContainer';
+import Start from './components/Start';
+
 export default function App() {
   return (
     <View style={styles.container}>
-        <MainContainer />
+        <Start />
       </View>
   );
 }
