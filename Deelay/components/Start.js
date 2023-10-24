@@ -3,16 +3,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Start() {
+export default function Start({onPress}) {
   const [fontsLoaded] = useFonts({
     'RobotoSlab': require('../assets/fonts/RobotoSlab-Regular.ttf'),
     'Kanit': require('../assets/fonts/Kanit-SemiBold.ttf'),
     'RobotSlabBold': require('../assets/fonts/RobotoSlab-ExtraBold.ttf'),
     'RobotoSlabBold': require('../assets/fonts/RobotoSlab-Bold.ttf'),
   });
-
-  const navigation = useNavigation();
-
   return (
     <View style={styles.container}>
             <LinearGradient
@@ -31,9 +28,7 @@ export default function Start() {
               <Text style={styles.h1}>Welcome!</Text>
               <Text style={styles.h1text}>Click on the button below to begin your journey aboard</Text>
               <Pressable
-                onPress={() => {
-                  navigation.navigate('MainContainer');
-                }}
+                onPress={onPress}
               style={styles.button}>
                 <Text style={styles.buttonText}>GET STARTED</Text>
               </Pressable>
